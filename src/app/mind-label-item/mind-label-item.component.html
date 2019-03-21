@@ -1,17 +1,20 @@
 
 
 <div  style="display: flex;flex-direction:row;align-items : center;">
-  <div id="{{'label' + data.levename}}" style="padding:20px 30px;border: 1px red solid;border-radius: 8px;width:250px;min-width: 300px;height: 75px;margin-top: 10px;margin-right: 40px">
+  <div id="{{'label' + data.levename}}" style="padding:10px 10px;border: 1px rgb(177, 177, 177) solid;box-shadow: 2px 2px 2px rgb(177, 177, 177);
+  border-radius: 5px;width: 350px;min-height: 70px;margin-top: 10px;margin-right: 40px;
+  display:flex;flex-direction:row;align-items : center;">
 
-    <span>{{data.levename}}</span>
-
-    <div style="float:right">
-      <button nz-button nzSize="Large" nzType="primary" (click)="loadComponent()" ><i nz-icon type="plus-square" theme="outline"></i></button>
-      <button #clearbtn nz-button nzSize="Large" nzType="danger" (click)="clearComponent()" ><i nz-icon type="minus-square" theme="outline"></i></button>
+    <!-- <span>{{data.levename}}</span> -->
+    <textarea style="width:270px;border: none;resize: none" nz-input placeholder="" nzCompact="true" [(ngModel)]="data.memoValue" [nzAutosize]="{ minRows: 1,maxRows:9 }" (ngModelChange)="memoValueChange($event)" ></textarea>
+    <div style="margin-left:20px;width: 80px;display: flex;flex-direction:row;">
+      <button nz-button nzSize="Large" nzType="primary" (click)="loadComponent()" ><i nz-icon type="plus" theme="outline"></i></button>
+      <button *ngIf="data.labelType == 'node'" #clearbtn nz-button nzSize="Large" nzType="danger" (click)="closeComponent()" ><i nz-icon type="close" theme="outline"></i></button>
+      <button *ngIf="data.labelType == 'root'" #clearbtn nz-button nzSize="Large" nzType="danger" (click)="clearComponent()" ><i nz-icon type="minus" theme="outline"></i></button>
     </div>
 
   </div>
-  <div class="chlidrenlabels" #chlidrenlabels style="display: flex;flex-direction:column; " >
+  <div class="childrenlabels" #childrenlabels style="display: flex;flex-direction:column; " >
     <ng-template app-label></ng-template>
   </div>
 </div>

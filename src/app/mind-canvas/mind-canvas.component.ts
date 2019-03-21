@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,ViewChildren,QueryList } from '@angular/core';
+
 import * as SysMethod from '../sys-method'
 
 
@@ -14,10 +15,5 @@ export class MindCanvasComponent implements OnInit {
   ngOnInit() {
 
   }
-
-
-
-
-
   
 }

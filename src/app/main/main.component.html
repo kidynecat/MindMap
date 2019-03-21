@@ -4,15 +4,17 @@
   <br>
   
   <app-mind-canvas></app-mind-canvas>
+  
   <div id="canvasContent" style="overflow-x:visible;overflow-y:visible;width: 200px; ">
-    <app-mind-label-item></app-mind-label-item>
+    <button nz-button (click)="saveData()">保存数据</button>
+    <button nz-button (click)="loadData()">加载数据</button>
+    <app-mind-label-item #rootlabel></app-mind-label-item>
   </div>
 
 
   <br>
 
 
-  <button nz-button (click)="reflashCanvas()">刷新画布</button>
   
   
 </div>

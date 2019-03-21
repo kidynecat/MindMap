@@ -65,6 +65,7 @@ import * as $ from 'jquery'
         let ctx = c.getContext("2d");
     
         ctx.beginPath();
+        ctx.strokeStyle="rgb(177, 177, 177)";
         ctx.moveTo(sx,sy);
         ctx.bezierCurveTo(sx+30,sy,ex-30,ey,ex,ey);
         ctx.stroke();
