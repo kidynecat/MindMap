@@ -8,9 +8,18 @@
     <!-- <span>{{data.levename}}</span> -->
     <textarea style="width:270px;border: none;resize: none" nz-input placeholder="" nzCompact="true" [(ngModel)]="data.memoValue" [nzAutosize]="{ minRows: 1,maxRows:9 }" (ngModelChange)="memoValueChange($event)" ></textarea>
     <div style="margin-left:20px;width: 80px;display: flex;flex-direction:row;">
-      <button nz-button nzSize="Large" nzType="primary" (click)="loadComponent()" ><i nz-icon type="plus" theme="outline"></i></button>
+
+      <nz-dropdown  [nzTrigger]="'click'">
+        <button  nz-dropdown nz-button ><span><i nz-icon type="down" theme="outline"></i></span></button>
+        <ul nz-menu>
+          <li  nz-menu-item (click)="loadComponent()"><i nz-icon type="plus" theme="outline"></i>添加</li>
+          <li *ngIf="data.labelType == 'node'"  nz-menu-item (click)="closeComponent()"><i nz-icon type="close" theme="outline"></i>删除</li>
+          <li *ngIf="data.labelType == 'root'" nz-menu-item (click)="clearComponent()"><i nz-icon type="minus" theme="outline"></i>清空</li>
+        </ul>
+      </nz-dropdown>
+      <!-- <button nz-button nzSize="Large" nzType="primary" (click)="loadComponent()" ><i nz-icon type="plus" theme="outline"></i></button>
       <button *ngIf="data.labelType == 'node'" #clearbtn nz-button nzSize="Large" nzType="danger" (click)="closeComponent()" ><i nz-icon type="close" theme="outline"></i></button>
-      <button *ngIf="data.labelType == 'root'" #clearbtn nz-button nzSize="Large" nzType="danger" (click)="clearComponent()" ><i nz-icon type="minus" theme="outline"></i></button>
+      <button *ngIf="data.labelType == 'root'" #clearbtn nz-button nzSize="Large" nzType="danger" (click)="clearComponent()" ><i nz-icon type="minus" theme="outline"></i></button> -->
     </div>
 
   </div>

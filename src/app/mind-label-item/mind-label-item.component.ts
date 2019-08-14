@@ -47,7 +47,7 @@ export class MindLabelItemComponent implements OnInit {
     resizeDetector.removeListener(this.childrenlabels.nativeElement,this.resizecallback)
   }
 
-  //观察者
+  //观察者 作为复组件 用于给子组件调用，删除自己
   private deleteChildObserver = {
     next: x => {
       console.log('childname: ' + x  +'| parentname: '+ this.data.levename)
@@ -72,8 +72,6 @@ export class MindLabelItemComponent implements OnInit {
   };
 
   public closeSubject: rxjs.Subject<any> = new rxjs.Subject<any>();
-
- 
 
   public closeObservable(): rxjs.Observable<any>{
     return this.closeSubject.asObservable()
@@ -129,7 +127,7 @@ export class MindLabelItemComponent implements OnInit {
     return (<MindLabelItemComponent>componentRef.instance)
   }
 
-  //清除所有
+  //作为父组件 清除所有子组件
   clearComponent() {
 
     this.data.childrenCount = 0
@@ -150,6 +148,7 @@ export class MindLabelItemComponent implements OnInit {
     this.childrenComponentRefs = []
   }
 
+  //作为子组件 删除自己
   closeComponent(){
     this.closeSubject.next(this.data.levename);//向父组件发送删除自己消息
   }

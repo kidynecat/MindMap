@@ -41,7 +41,8 @@ export class MainComponent implements OnInit {
   saveData(){
     this.tmpSaveData = new MindSaveData()
     this.getloopData(this.tmpSaveData,this.rootLabel)
-    console.log(this.tmpSaveData)
+    //console.log(this.tmpSaveData)
+    console.log(JSON.stringify(this.tmpSaveData))
   }
 
   //递归获取数据
