@@ -23,7 +23,7 @@
     "@types/jquery": "^3.3.29",
     "cheerio": "^1.0.0-rc.2",
     "core-js": "^2.5.4",
-    "jquery": "^3.3.1",
+    "jquery": "^3.5.0",
     "ng-zorro-antd": "^7.0.0-rc.3",
     "resize-detector": "^0.2.0",
     "rxjs": "~6.3.3",
